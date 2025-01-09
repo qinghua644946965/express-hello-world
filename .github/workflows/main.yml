@@ -25,5 +25,11 @@ jobs:
           git reset --hard origin/master &&
           git pull origin master &&
           sudo npm i &&
-          sudo pm2 stop ./index.js &&
+          # Check if the process is running and stop it if it is
+          if pm2 list | grep -q 'index.js'; then
+            echo "Stopping the process..."
+            sudo pm2 stop ./index.js
+          else
+            echo "Process not found, skipping stop."
+          fi
           sudo pm2 start ./index.js
