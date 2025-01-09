@@ -18,9 +18,34 @@ jobs:
             USER_NAME: ${{secrets.USER_NAME}}
       
         run: |
-          echo "$PRIVATE_KEY"
-          echo "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-          echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
+          multi_line_string="-----BEGIN RSA PRIVATE KEY-----
+          MIIEpQIBAAKCAQEAv//hBW9ieXNxi0IBCXahua8iDcrJCUU0yWOHyM4znXp205v6
+          KwqHOIeATpvXRhsfAZnZarpVQQdgqRmW9Ta3qkvhxP5JCOouusTG5PtFaim/SEwd
+          MH/dI/WRbeAcsc6AIfB9mp2wX3RVb12tT6JTBwDCrzsYH173zqI2Oli4jURB2C9h
+          l1i1gog/Cihsg8+cvIXq/MamNa9F1ncDdpCgvNsg0PmdaXj4dXLcEU6CG62IDxTt
+          NqFhDHg9Zyq9NdlpQeJKJID3BDJPJPNmoFXBibMI46RvTsZBGs4NLPr6sKNWWLXa
+          z2WSYc3TqzKikAxMBUyxcrRWAQopzdVVnanx3QIDAQABAoIBAHrE8Wv6RyuFyArV
+          z7fvZYZIGCxdiKMm35QO0ppyT8rYrfatfA/dkY1yB3c8azDm0rLBX6bBMxZ70zEN
+          rdtqe5KnJtxCBQ1wQSUoAk4U5dP2kdt24AtNF2iQ88cgUPjZJFGPZ6FgR5Eh4Cdv
+          7QxIrXKC5/oIfWpB3Y8BZk90v72D1j3qcwmYC6o6Ta4Fy2z0mPoxjoZ2MqhXKlPw
+          6xL5Svh0VNAafezz5Ho9MSp4BbYA7LkD8bta5KCsjFAPGQJQ4gpfZ+Hea37sRJB7
+          Dvnr0sk96mV2t3YIILKdUmjTNpPtm8RI9DzYBtN70eL3Hj+6LtmE7ljz6+yVSDyT
+          w65AmjkCgYEA46avuLjPuqcxRtYlaktE2qO7Vs/VYfS9/MlOe4qzDTlFCkKgYlrZ
+          kCzPl1UAr3dO6+s7qXCQK03tpZ9cRA9rTypBJQqm7MoBlfDmYdq7ba6yD3FoB+VN
+          FUk58hZ8XPqzICT449UJ2Jsl7cky95pak9p/vRqQAxWyAQ5cOObE99MCgYEA1+im
+          3F38Gcpn8M80qk8e040gS243xNGKoIx13RFonYi/GHi6Lc3ejXMVoYUPWhz0oMue
+          prrolfZYXyKNSN5uXlh5C2ML/YM3ujZ8CHfIXCg3VWz/+y6WADJOkWRisJSLvxda
+          C8xhixteylbLgKTuiUPJkimggz/7aJ+iKZeHkY8CgYEAuzqAEyCMWCrhsCy3oPA+
+          tMMsdH2CNYogJyM5VQoBsMKFMacSWVH21UjFguT6J1WspwNUkkpth/ATn7+tFpzH
+          2Ngbs+dK2jxZiYQTNi+7Lr4a2/CdasD/4J3U9nHf3mihobJGsLqp2mffje2H6XQd
+          QrTVkiWig6b4Oz4gQvwoytkCgYEAkSg0TsHNRRWkrezQ7pOFGRuvk6cFTYjHV8s3
+          TqpumEMgnvZDzZm0P4sZBt+rg50mBpj/D/9ncbMOlN9o9427zChVMQelPwqiQ8pv
+          t0244eST1xYSP7CBXp5z3iIMi8VC8vVjL7138wsyvnx+Ev5P9O8jLOZZqQQyJZP1
+          dVsP5RcCgYEAjq9NSA+42xKT3jytudxN244aFQDs/kSA++dbGdNclCKPv5m7MzOM
+          jrTFSSy4gb1418hlnIloHMMe5B8Cabb0DAQW7cJrw/xxt3VQsgRCj27Q5hkJIH1P
+          DBu1OawvsM5r1X7gFCifFBVFiAvxR0kBwijnduTWRoM8wViRJbuQ0RI=
+          -----END RSA PRIVATE KEY-----"
+          echo "$multi_line_string" > private_key.pem && chmod 600 private_key.pem
           cat ./private_key.pem
           echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
           ssh -i ./private_key.pem ubuntu@52.34.98.171
