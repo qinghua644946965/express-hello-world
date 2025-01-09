@@ -18,7 +18,7 @@ jobs:
             USER_NAME: ${{secrets.USER_NAME}}
       
         run: |
-          multi_line_string="-----BEGIN RSA PRIVATE KEY-----
+          echo "-----BEGIN RSA PRIVATE KEY-----
           MIIEpQIBAAKCAQEAv//hBW9ieXNxi0IBCXahua8iDcrJCUU0yWOHyM4znXp205v6
           KwqHOIeATpvXRhsfAZnZarpVQQdgqRmW9Ta3qkvhxP5JCOouusTG5PtFaim/SEwd
           MH/dI/WRbeAcsc6AIfB9mp2wX3RVb12tT6JTBwDCrzsYH173zqI2Oli4jURB2C9h
@@ -44,10 +44,7 @@ jobs:
           dVsP5RcCgYEAjq9NSA+42xKT3jytudxN244aFQDs/kSA++dbGdNclCKPv5m7MzOM
           jrTFSSy4gb1418hlnIloHMMe5B8Cabb0DAQW7cJrw/xxt3VQsgRCj27Q5hkJIH1P
           DBu1OawvsM5r1X7gFCifFBVFiAvxR0kBwijnduTWRoM8wViRJbuQ0RI=
-          -----END RSA PRIVATE KEY-----"
-          echo "$multi_line_string"
-          echo "$multi_line_string" > private_key.pem && chmod 600 private_key.pem
-          echo "$multi_line_string"
+          -----END RSA PRIVATE KEY-----" > private_key.pem && chmod 600 private_key.pem
           echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
           ssh -i ./private_key.pem ubuntu@52.34.98.171
               # Now we have got the access of EC2 and we will start the deploy .
