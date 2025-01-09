@@ -11,28 +11,15 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2 
-      
-      - name: Run a script
-        run: |
-          echo "Starting the build process..."
-          # 假设你有一个构建命令
-          echo "Building the application..."
-          # 这里可以是你的构建命令
-          echo "Build completed successfully."
-          
       - name: Build & Deploy
         env:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
             HOSTNAME: ${{secrets.SSH_HOST}}
             USER_NAME: ${{secrets.USER_NAME}}
-            
+      
         run: |
-          echo "12132312312"
-          echo "243234234234234234"
-          echo "%HOSTNAME%"
-          echo "%USER_NAME%"
-          echo "%PRIVATE_KEY%" > private_key && chmod 600 private_key
-          ssh -i private_key "%USER_NAME%"@"%HOSTNAME%"
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
               # Now we have got the access of EC2 and we will start the deploy .
               touch /home/ubuntu/helloworld &&
               cd /home/ubuntu/express-hello-world &&
