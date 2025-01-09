@@ -27,6 +27,8 @@ jobs:
             USER_NAME: ${{secrets.USER_NAME}}
             
         run: |
+          echo "12132312312"
+          echo "243234234234234234"
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
 
