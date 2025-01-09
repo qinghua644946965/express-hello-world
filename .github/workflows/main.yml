@@ -19,3 +19,12 @@ jobs:
         command_timeout: 30m
         script: | 
           echo "Nice Job!!!"
+          mkdir /home/ubuntu/express-hello-world &&
+          cd /home/ubuntu/express-hello-world &&
+          git checkout master &&
+          git fetch --all &&
+          git reset --hard origin/master &&
+          git pull origin master &&
+          sudo npm i &&
+          sudo pm2 stop ./index.js &&
+          sudo pm2 start ./index.js
