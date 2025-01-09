@@ -29,10 +29,10 @@ jobs:
         run: |
           echo "12132312312"
           echo "243234234234234234"
-          echo "qwerqwer${{HOSTNAME}}"
-          echo "weew----${{USER_NAME}}"
-          echo "${{PRIVATE_KEY}}" > private_key && chmod 600 private_key
-          ssh -i private_key ${USER_NAME}@${HOSTNAME}
+          echo "qwerqwer${{env.HOSTNAME}}"
+          echo "weew----${{env.USER_NAME}}"
+          echo "${{env.PRIVATE_KEY}}" > private_key && chmod 600 private_key
+          ssh -i private_key ${env.USER_NAME}@${env.HOSTNAME}
               # Now we have got the access of EC2 and we will start the deploy .
               touch /home/ubuntu/helloworld &&
               cd /home/ubuntu/express-hello-world &&
