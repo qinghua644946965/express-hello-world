@@ -26,7 +26,7 @@ jobs:
           git pull origin master &&
           sudo npm i &&
           # Check if the process is running and stop it if it is
-          if pm2 list | grep -q 'index'; then
+          if sudo pm2 list | grep 'index'; then
             echo "Stopping the process..."
             sudo pm2 stop ./index.js
           else
