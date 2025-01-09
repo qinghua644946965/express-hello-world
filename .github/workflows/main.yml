@@ -11,12 +11,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2 
-      - name: Build & Deploy
-        env:
-            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            HOSTNAME: ${{secrets.SSH_HOST}}
-            USER_NAME: ${{secrets.USER_NAME}}
-
+      
       - name: Run a script
         run: |
           echo "Starting the build process..."
@@ -25,7 +20,12 @@ jobs:
           # 这里可以是你的构建命令
           echo "Build completed successfully."
           
-      - name: Conditional logging
+      - name: Build & Deploy
+        env:
+            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            HOSTNAME: ${{secrets.SSH_HOST}}
+            USER_NAME: ${{secrets.USER_NAME}}
+            
         run: |
           echo "$PRIVATE_KEY"
           echo "$HOSTNAME"
