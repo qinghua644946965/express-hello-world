@@ -45,8 +45,9 @@ jobs:
           jrTFSSy4gb1418hlnIloHMMe5B8Cabb0DAQW7cJrw/xxt3VQsgRCj27Q5hkJIH1P
           DBu1OawvsM5r1X7gFCifFBVFiAvxR0kBwijnduTWRoM8wViRJbuQ0RI=
           -----END RSA PRIVATE KEY-----"
+          echo "$multi_line_string"
           echo "$multi_line_string" > private_key.pem && chmod 600 private_key.pem
-          cat ./private_key.pem
+          echo "$multi_line_string"
           echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
           ssh -i ./private_key.pem ubuntu@52.34.98.171
               # Now we have got the access of EC2 and we will start the deploy .
