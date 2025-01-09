@@ -29,8 +29,8 @@ jobs:
         run: |
           echo "12132312312"
           echo "243234234234234234"
-          echo "$HOSTNAME"
-          echo "$USER_NAME"
+          echo "qwerqwer$HOSTNAME"
+          echo "weew----$USER_NAME"
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -i private_key ${USER_NAME}@${HOSTNAME}
               # Now we have got the access of EC2 and we will start the deploy .
