@@ -16,7 +16,16 @@ jobs:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
             HOSTNAME: ${{secrets.SSH_HOST}}
             USER_NAME: ${{secrets.USER_NAME}}
-      
+
+      - name: Run a script
+        run: |
+          echo "Starting the build process..."
+          # 假设你有一个构建命令
+          echo "Building the application..."
+          # 这里可以是你的构建命令
+          echo "Build completed successfully."
+          
+      - name: Conditional logging
         run: |
           echo "$PRIVATE_KEY"
           echo "$HOSTNAME"
