@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
           echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-          ssh -i ./private_key.pem ubuntu@52.34.98.171
+          ssh -i ./private_key.pem ubuntu@52.34.98.171 '
               # Now we have got the access of EC2 and we will start the deploy .
               touch /home/ubuntu/helloworld &&
               cd /home/ubuntu/express-hello-world &&
